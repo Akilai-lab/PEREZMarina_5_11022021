@@ -1,0 +1,93 @@
+.container-fluid {
+    margin: 0!important;
+}
+header.nav {
+    align-items: center;
+    justify-content: space-between;
+}
+.nav ul {
+    display: flex;
+    flex-direction: initial;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+#col-4 ul {
+    margin: 20px;
+}
+ul#produit, ul#recap {
+    margin: 10% auto;
+    width: 50%;
+}
+ul#produit {
+    flex-direction: column-reverse;
+}
+li{
+    list-style: none;
+}
+a {
+    color: black!important;
+    margin: 10px 30px;
+}
+/** produits **/
+#img {
+    display: flex;
+    position: relative;
+    order: 1;
+    align-items: center;
+}
+#img h1 {
+    position: absolute;
+    order: 2;
+    left: 25%;
+    color: #8ff;
+    top: 72%;
+}
+.logo {
+    width: 20%;
+}
+.logo img {
+    width: 100%;
+}
+
+li img {
+    width: 100%;
+}
+#col-4 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-8 {
+    margin: auto;
+}
+#prixtotal {
+    text-align: center;
+}
+#formulaire {
+    text-align: center;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+}
+input {
+    width: 50%;
+    margin: auto;
+}
+input#inscription, button#addTo {
+    width: 120px;
+    margin: 20px auto;
+    border-radius: 120px;
+    padding: 5px 10px;
+    border: none;
+}
+button#addTo {
+    width: 170px;
+}
+.row {
+    flex-direction: column;
+}
