@@ -83,23 +83,9 @@ function affichage(sessionRestauree) {
       
         // alert("Formulaire envoyé")
         // //au submit on afficher popup Formulaire envoyé
-        let regLetters = /^[^0-9]+([A-Z][a-z]+)*/
-        let regAdresse = /([0-9]*) ?([a-zA-Z,\. ]*) ?([0-9]{5}) ?([a-zA-Z]*)/
-        let emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/
-
-        if((regLetters.test(this.firstName.value)
-        //si la valeur de l'input ne contient pas /^[a-zA-z]*/
-            ||regAdresse.test(this.address.value)
-        //
-            ||emailRegExp.test(this.email.value)
-        //
-            ||regLetters.test(this.lastName.value)
-        //
-            ||regLetters.test(this.city.value))) {
-              console.log("ca fonctionne")
-            } else {
-              console.log("ca ne fonctionne pas")
-            }
+        let regLetters = /^[a-zA-Z,'-]*$/
+        let regAdresse = /([0-9]*)?([a-zA-Z,\. ]*)?([0-9]{5})?([a-zA-Z]*)/
+        let emailRegExp = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/
         if (this.email.value.indexOf("@", 0) < 0)                 
         { 
           //dans le cas où l'adresse mail ne contient pas ce caractère, on retourne false
@@ -116,14 +102,14 @@ function affichage(sessionRestauree) {
             //La méthode HTMLElement.focus() donne le focus à l'élément spécifié
             return false; 
         } 
-
           //si les regex sont vraies alors on rentre dans la boucle suivante
-          if ((this.firstName.value != "") 
-          && (this.address.value != "") 
-          && (this.email.value != "") 
-          && (this.lastName.value != "") 
-          && (this.city.value != "") 
-          )                                  
+          if (
+               (this.firstName.value != "" && regLetters.test(this.firstName.value))
+            && (this.address.value != "" && regAdresse.test(this.address.value))
+            && (this.email.value != "" && emailRegExp.test(this.email.value))
+            && (this.lastName.value != "" && regLetters.test(this.lastName.value))
+            && (this.city.value != "" && regLetters.test(this.city.value))
+            )                       
           //si les propriétés de l'objet contact ont une valeur qui n'est pas vide alors :
           { 
            //La méthode HTMLElement.focus() donne le focus à l'élément spécifié
@@ -143,32 +129,19 @@ function affichage(sessionRestauree) {
            .then(function(data) {
              console.log(data)
              //si fonction est bien retournée, on recupère les infos du paramètre text et on les affiche
-     
              //Récupéré id commandes 
              //Envoyer vers page commandes
+           })
+           .then(function(data){
+            let idOrd = JSON.stringify(data)
+            localStorage.setItem('idOrder', JSON.stringify(idOrd))
            })
            .catch(function(error) {
              console.log(error)
              //en cas d'erreur on renvoi l'erreur
            }) 
-              //on retourne true et les valeurs sont récupérées
-        }
-        }
-         /*if (regLetters.test(this.firstName.value)
-         || regLetters.test(this.address.value) && regNumbers.test(this.address.value)
-         || emailRegExp.test(this.email.value) 
-         || regLetters.test(this.lastName.value) 
-         || regNumbers.test(this.city.value) ) {
-          alert("il y a une erreur verifiez vos informations")
-           let inputError = document.getElementById('error')
-           inputError.style.color ='red'
-           inputError.style.fontWeight ='700'
-           inputError.innerHTML += `
-           <p>vos informations sont eronnées</p>
-           `
-           console.log(inputError)
-         }  */    
-    )
-  }
+          }   
+      })
+    }
   /***********form ************/
    
