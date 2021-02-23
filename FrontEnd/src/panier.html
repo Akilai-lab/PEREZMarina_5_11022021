@@ -28,31 +28,26 @@
                 </div>
                 <div class="col-8">
                     <div id="formulaire">
-                        <form id="inscription">
-                            <div class="form">
+                        <form id='inscription'>
+                            <div>
                               <label for="firstName">Nom :</label>
-                              <input type="text" name="firstName" id="firstName" required>
-                              <span id="error"></span>
+                              <input type="text" name="firstName" id="firstName" pattern="regLetters" title="Ne pas inclure de chiffres" required>
                             </div>
-                            <div class="form">
-                              <label for="lastName">Prenom :</label>
-                              <input type="text" name="lastName" id="lastName" required>
-                              <span id="error"></span>
+                            <div>
+                              <label for= "lastName">Prenom :</label>
+                              <input type="text" name="lastName" id="lastName" pattern="regLetters" title="Ne pas inclure de chiffres" required>
                             </div>
-                            <div class="form">
+                            <div>
                               <label for="address">Addresse :</label>
-                              <input type="text" name="address" id="address" required>
-                              <span id="error"></span>
+                              <input type="text" name="address" id="address" pattern="regAdresse" required>
                             </div>
-                            <div class="form">
+                            <div >
                               <label for="city">City :</label>
-                              <input type="text" name="city" id="city" required>
-                              <span id="error"></span>
+                              <input type="text" name="city" id="city" pattern="regLetters" title="Ne pas inclure de chiffres" required>
                             </div>
-                            <div class="form">
+                            <div>
                               <label for="email">E-mail :</label>
-                              <input type="text" name="email" id="email" required>
-                              <span id="error"></span>
+                              <input type="text" name="email" id="email" pattern="emailRegExp" required>
                             </div>
                             <input type="submit" value="Envoyer"></button>
                           </form>
