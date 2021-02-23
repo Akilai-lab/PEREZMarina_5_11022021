@@ -91,3 +91,8 @@ button#addTo {
 .row {
     flex-direction: column;
 }
+
+input:focus:required:invalid, input[pattern]:focus:invalid{
+    background-color: rgb(230, 76, 76);
+
+}
