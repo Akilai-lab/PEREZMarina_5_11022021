@@ -35,7 +35,6 @@ function affichage(sessionRestauree) {
   }
   function form(sessionRestauree) {
     let myform = document.getElementById('inscription')
-
     //afficher en console le boutton
 
     const products = []
@@ -51,7 +50,7 @@ function affichage(sessionRestauree) {
       console.log(idProd)
     }
     myform.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault()
       console.log("Produit ajouter au panier")
       // Les objects
        const contact = {
@@ -68,9 +67,10 @@ function affichage(sessionRestauree) {
       contact.email = email.value
 
       let data = {
-        contact : contact,
-        products : products
+         contact : contact ,
+         products : products
       }
+      
       /*console.log(data)*/
 
       //Vérrifier les champs
@@ -131,16 +131,23 @@ function affichage(sessionRestauree) {
              //si fonction est bien retournée, on recupère les infos du paramètre text et on les affiche
              //Récupéré id commandes 
              //Envoyer vers page commandes
+             let idOrd = JSON.stringify(data)
+             localStorage.setItem('idOrder', idOrd)
+             console.log(localStorage.setItem('idOrder', idOrd))
+             JSON.parse(localStorage.getItem('idOrder'))
            })
-           .then(function(data){
-            let idOrd = JSON.stringify(data)
-            localStorage.setItem('idOrder', JSON.stringify(idOrd))
+           .then(function(envoi) {
+             let envoiCommande = document.getElementById('pageConfirmation')
+             envoiCommande.innerHTML+= `
+            <button onclick="location.href='confirmation.html'">Accéder à la confirmation de commande</button>
+            `
+            envoiCommande.style.marginTop ='20px'
            })
            .catch(function(error) {
              console.log(error)
              //en cas d'erreur on renvoi l'erreur
            }) 
-          }   
+          }  
       })
     }
   /***********form ************/
