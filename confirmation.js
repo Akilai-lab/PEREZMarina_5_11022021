@@ -14,6 +14,7 @@ async function recapCommande() {
   console.log(NCommande)
       /*************************** */
 Infoscontact (contact,products,NCommande)
+localStorage.clear();
 }
 function Infoscontact (contact,products,NCommande) {
       let total = 0
