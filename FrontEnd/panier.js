@@ -1,4 +1,3 @@
-
 recapPanier()
 
 async function recapPanier() {
