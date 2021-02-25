@@ -41,7 +41,7 @@ async function AfficherUnProduit() {
 
         btnPanier.addEventListener("click", function () {
         // on crée un événement au click à la variable btnPanier qui a comme valeur le boutton avec comme id addTo
-        alert("ok")
+        alert("Ajouté au panier")
             let produit = {
                 id : idActual._id,
                 name : idActual.name,
