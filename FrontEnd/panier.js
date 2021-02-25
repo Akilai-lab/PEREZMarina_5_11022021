@@ -86,6 +86,7 @@ function affichage(sessionRestauree) {
         let regLetters = /^[a-zA-Z,'-]*$/
         let regAdresse = /([0-9]*)?([a-zA-Z,\. ]*)?([0-9]{5})?([a-zA-Z]*)/
         let emailRegExp = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/
+
         if (this.email.value.indexOf("@", 0) < 0)                 
         { 
           //dans le cas où l'adresse mail ne contient pas ce caractère, on retourne false
@@ -137,17 +138,65 @@ function affichage(sessionRestauree) {
              JSON.parse(localStorage.getItem('idOrder'))
            })
            .then(function(envoi) {
-             let envoiCommande = document.getElementById('pageConfirmation')
-             envoiCommande.innerHTML+= `
-            <button onclick="location.href='confirmation.html'">Accéder à la confirmation de commande</button>
-            `
-            envoiCommande.style.marginTop ='20px'
+            document.location.replace('confirmation.html');
            })
            .catch(function(error) {
              console.log(error)
              //en cas d'erreur on renvoi l'erreur
            }) 
-          }  
+          } else {
+            if (
+              (this.firstName.value != "" && regLetters.test(this.firstName.value)) == false
+            ) {
+              this.firstName.focus()
+                document.getElementById('mess').innerHTML += `
+                il y a une erreur dans votre firstname
+                <br>
+                `
+            }
+            /*******Erreur firstName*******/
+            if(
+              (this.lastName.value != "" && regLetters.test(this.lastName.value)) == false
+              )
+            {
+                this.lastName.focus()
+                document.getElementById('mess').innerHTML += `
+                il y a une erreur dans votre lastname
+                <br>
+                `
+            }
+            /*******Erreur lastName*******/
+            if (
+              (this.city.value != "" && regLetters.test(this.city.value)) == false
+            ) {
+                this.city.focus()
+                document.getElementById('mess').innerHTML += `
+                il y a une erreur dans votre city
+                <br>
+                `
+            }
+            /*******Erreur city*******/
+            if (
+              (this.address.value != "" && regAdresse.test(this.address.value)) == false
+            ) {
+                this.address.focus()
+                document.getElementById('mess').innerHTML += `
+                il y a une erreur dans votre address
+                <br>
+                `
+            }
+            /*******Erreur adress*******/
+            if(
+              (this.email.value != "" && emailRegExp.test(this.email.value)) == false
+            ) {
+                this.email.focus()
+                document.getElementById('mess').innerHTML += `
+                il y a une erreur dans votre email
+                <br>
+                `
+            }
+            /*******Erreur email*******/
+          } 
       })
     }
   /***********form ************/
