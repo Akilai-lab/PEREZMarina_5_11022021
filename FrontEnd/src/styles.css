@@ -27,9 +27,27 @@ ul#produit {
 li{
     list-style: none;
 }
+.iconePanier {
+    width: 20%;
+    height: 92%;
+}
+.imgBanniere {
+    background-image: url(./../assets/mother-and-child-5368416_960_720.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 340px;
+}
+.imgBanniere h1 {
+    color: white;
+    margin: 9%;
+}
 a {
     color: black!important;
     margin: 10px 30px;
+}
+h1 {
+    text-align: center;
+    font-size: 30px!important;
 }
 /** produits **/
 #img {
@@ -62,6 +80,9 @@ li img {
 .col-8 {
     margin: auto;
 }
+.col-12 {
+    background-color: #f9f0d5;
+}
 #prixtotal {
     text-align: center;
 }
@@ -87,6 +108,8 @@ input#inscription, button#addTo {
 }
 button#addTo {
     width: 170px;
+    background-color: #eab26f;
+    border: 1.5px solid white;
 }
 .row {
     flex-direction: column;
@@ -94,4 +117,19 @@ button#addTo {
 
 input:focus:required:invalid, input[pattern]:focus:invalid{
     background-color: rgb(230, 76, 76);
+}
+
+@media (min-width:768px) and (max-width:1200px) {
+    ul {
+        margin: 70px auto;
+    }
+}
+@media (max-width:768) {
+    .row {
+        margin: 0;
+    }
+    ul{
+        display: block;
+        width: auto;
+    }
 }
