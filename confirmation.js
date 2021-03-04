@@ -10,6 +10,7 @@ async function recapCommande() {
   console.log(sessionRestauree.orderId)
       /*************************** */
 Infoscontact (contact,products,NCommande)
+//vider le localstorage
 localStorage.clear();
 }
 function Infoscontact (contact,products,NCommande) {
