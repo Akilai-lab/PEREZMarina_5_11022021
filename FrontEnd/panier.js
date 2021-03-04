@@ -136,14 +136,14 @@ function affichage(sessionRestauree) {
              console.log(localStorage.setItem('idOrder', idOrd))
              JSON.parse(localStorage.getItem('idOrder'))
            })
-           .then(function(envoi) {
+           .then(function(envoi) {//redirection replace
             document.location.replace('confirmation.html');
            })
            .catch(function(error) {
              console.log(error)
              //en cas d'erreur on renvoi l'erreur
            }) 
-          } else {
+          } else {//condition message erreur
             if (
               (this.firstName.value != "" && regLetters.test(this.firstName.value)) == false
             ) {
